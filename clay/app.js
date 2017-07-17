@@ -1,12 +1,19 @@
+//DEFAULT MODULES
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+//PROJECT MODULES
+var session = require('express-session');
+var config=require('./mod/config');
+//DEFOULT ROUTES
 var index = require('./routes/index');
 var users = require('./routes/users');
+
+//PROJECT ROUTES
+var clay = require('./routes/clay');
 
 var app = express();
 
@@ -22,8 +29,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//sesion use
+app.use(session({
+  secret: config.session.secret,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 600000 }
+}))
+
 app.use('/', index);
 app.use('/users', users);
+
+//PROJECT
+app.use('/clay',clay);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

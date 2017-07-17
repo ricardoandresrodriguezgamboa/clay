@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+.grayBackground{
+	background-color: gray; 
+}
+.rectangle{
+  background-color:rgb(20,20,20);
+  opacity:0.9;
+  margin-top:10%;
+  margin-left:10%;
+  margin-right:10%;
+  padding:10px 10px 10px 10px;
+  border-radius:10px 10px 10px 10px;
+  color:#ffffff;
+}
+
+.section1{
+	text-align: center;
+
+}
