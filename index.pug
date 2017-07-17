@@ -1,0 +1,23 @@
+extends layout
+
+block content
+ include nav
+ .container
+  .title-login
+   | Login 
+   b Admin Panel
+ form.formulario(action='#')
+  #form-content
+   .form-group
+    label(for='user') Nombre de usuario:
+    input#user.form-control(type='text' , name='username' placeholder='Ingrese Nombre de usuario' required='')
+   .form-group
+    label(for='pwd') Contraseña:
+    input#pwd.form-control(type='password', name='password' placeholder='Ingrese Contraseña' required='')
+   button.btn.btn-block.btn-primary Entrar 
+   a(href='#' , class='forgot') ¿Olvidaste su contraseña?
+   a(href='#' , class='help') ¿Necesitas Ayuda?
+
+
+  
+      
